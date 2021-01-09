@@ -1,5 +1,7 @@
-# synse-zsl
-Repo for SynSE - zero-shot learning approach for skeleton action recognition
+# SynSE
+Original PyTorch implementation for 'Syntactically Guided Generative Embeddings For Zero Shot Skeleton Action Recognition'
+
+<img src = "Images/SynSE_arch.png" />
 
 ### todo
 push gating model notebooks
