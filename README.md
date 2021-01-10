@@ -19,7 +19,13 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
 ### Preprocessing
  To generate the splits used by us, place the downloaded dataset in the 'dataset' folder and run the [split generator script]() .
  
-###
+### Setting up text embedding generators
+<ol> 
+  <li> Word2Vec: Download the <a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit">Pre-Trained Word2Vec Vectors</a>   </li>
+  <li> For BERT, we use the sentence-transformers package. It can be installed using pip: 
+    <br>
+    <code> pip install -U sentence-transformers </code>
+</ol>
   
 
 
