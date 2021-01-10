@@ -21,7 +21,7 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
  
 ### Setting up text embedding generators
 <ol> 
-  <li> Word2Vec: Download the <a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit">Pre-Trained Word2Vec Vectors</a>   </li>
+  <li> Word2Vec: Download the <a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit">Pre-Trained Word2Vec Vectors</a> and extract the contents of the archive </li>
   <li> For BERT, we use the sentence-transformers package. It can be installed using pip: 
     <br>
     <code> pip install -U sentence-transformers </code>
