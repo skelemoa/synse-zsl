@@ -34,7 +34,7 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
 ### todo
 - [X] push code for synse
 - [ ] push code for cadavae
-- [ ] push code for revise
+- [X] push code for revise
 - [ ] push code for jpose
 - [ ] push data preparation code
 - [ ] push documentation
