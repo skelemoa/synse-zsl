@@ -185,7 +185,8 @@ class NTUDataLoaders(object):
             self.val_X = np.load(path + '/ztest.npy')
             self.val_Y = np.load(path + '/z_label.npy')
             self.test_X = np.load(path + '/val.npy')
-            self.test_Y = np.load(path + '/v_label.npy')
+#             print(self.test_X.shape)
+            self.test_Y = np.load(path + '/val_label.npy')
             self.val_out_X = np.load(path + '/ztest_out.npy')
             self.test_out_X = np.load(path + '/val_out.npy')
 
@@ -199,7 +200,8 @@ class NTUDataLoaders(object):
             self.test_Y = np.load(path + '/g_label.npy')
             self.val_out_X = None 
             # np.load(path + '/ztest_out.npy')
-            self.test_out_X = np.load(path + '/gtest_out.npy')
+            self.test_out_X = None
+#             np.load(path + '/gtest_out.npy')
 
         if self.dataset == 'NTU':
             self.max = 5.18858098984

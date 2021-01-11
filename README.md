@@ -32,8 +32,12 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
 ###
 
 ### todo
-push gating model notebooks
-push data preparation code
-push documentation
+- [X] push code for synse
+- [ ] push code for cadavae
+- [ ] push code for revise
+- [ ] push code for jpose
+- [ ] push data preparation code
+- [ ] push documentation
+- [ ] provide resources and trained models for evaluation
 
 link for trained models : https://drive.google.com/drive/folders/113edMAjmHlX9G81ToTX2AC74ejv7_2o8?usp=sharing
