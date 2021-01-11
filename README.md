@@ -55,7 +55,7 @@ wdir | - | Directory to store the weights to |
 - [X] push code for synse
 - [ ] push code for cadavae
 - [X] push code for revise
-- [ ] push code for jpose
+- [X] push code for jpose
 - [ ] push data preparation code
 - [ ] push documentation
 - [ ] provide resources and trained models for evaluation
