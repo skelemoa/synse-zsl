@@ -19,33 +19,12 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
 ### Preprocessing
  To generate the splits used by us, place the downloaded dataset in the 'dataset' folder and run the [split generator script](). The unseen classes of the various splits are listed below:
  
-#### NTU-60 Unseen Classes:
-##### Split: 55/5: 
-<ul>
-  <li> Reading </li>
-  <li> Writing </li>
-  <li> Put on Hat or Cap </li>
-  <li> Jump up </li>
-  <li> Touch Pocket </li>
-</ul>
-
-##### Split: 40/10: 
-<ul>
-  <li> Punch or Slap </li>
-  <li> Put on Jacket </li>
-  <li> Headache </li>
-  <li> Drop </li>
-  <li> Salute </li>
-  <li> Butt Kicks </li>
-  <li> Juggle Table Tennis Ball </li>
-  <li> Put Object into Bag </li>
-  <li> Cross Arms </li>
-  <li> Wield Knife </li>
-</ul>
-
-#### NTU-120 Unseen Classes:
-##### Split: 96/24: 
-
+ 
+|Dataset | Split | Unseen Classes |
+| --- | --- | --- | 
+NTU-60 | 55/5 | Reading, Writing, Put on Hat or Cap, Jump Up, Touch Pocket |
+NTU-60 | 40/10 |  Punch or Slap,  Put on Jacket, Headache, Drop, Salute, Butt Kicks, Juggle Table Tennis Ball, Put Object into Bag, Cross Arms,  Wield Knife |
+NTU-120 | 96/24 |  |
  
 ### Setting up text embedding generators
 <ol> 
