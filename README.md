@@ -40,7 +40,7 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
   <li> Juggle Table Tennis Ball </li>
   <li> Put Object into Bag </li>
   <li> Cross Arms </li>
-  <li> Weild Knife </li>
+  <li> Wield Knife </li>
 </ul>
 
 #### NTU-120 Unseen Classes:
