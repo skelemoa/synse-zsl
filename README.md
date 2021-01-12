@@ -23,7 +23,7 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
 |Dataset | Split | Unseen Classes |
 | --- | --- | --- | 
 NTU-60 | 55/5 | Reading, Writing, Put on Hat or Cap, Jump Up, Touch Pocket |
-NTU-60 | 40/10 |  Punch or Slap,  Put on Jacket, Headache, Drop, Salute, Butt Kicks, Juggle Table Tennis Ball, Put Object into Bag, Cross Arms,  Wield Knife |
+NTU-60 | 48/12 |   |
 NTU-120 | 96/24 |  |
  
 ### Setting up text embedding generators
