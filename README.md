@@ -127,7 +127,7 @@ A README is present in each folder detailing the use of the provided scripts for
 
 ### todo
 - [X] push code for synse
-- [ ] push code for cadavae
+- [X] push code for cadavae
 - [X] push code for revise
 - [X] push code for jpose
 - [ ] push data preparation code
