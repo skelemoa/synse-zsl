@@ -23,11 +23,11 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
 #### Unseen Classes (55/5 split):
 <table>
   <tr>
-    <td align = "center"><b>A11</b> reading. </td>
-    <td align = "center"><b>A12</b> writing. </td>
-    <td align = "center"><b>A20</b> put on a hat/cap. </td>
-    <td align = "center"><b>A27</b> jump up. </td>
-    <td align = "center"><b>A57</b> touch pocket. </td>
+    <td align = "center"><b>A11</b> reading </td>
+    <td align = "center"><b>A12</b> writing </td>
+    <td align = "center"><b>A20</b> put on a hat/cap </td>
+    <td align = "center"><b>A27</b> jump up </td>
+    <td align = "center"><b>A57</b> touch pocket </td>
   </tr>
 </table>
 
