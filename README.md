@@ -90,7 +90,7 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
   </tr>
    <tr>
     <td align = "center"><b>A59</b> walking towards </td>
-    <td align = "center"><b>A64/b> bounce ball </td>
+    <td align = "center"><b>A64</b> bounce ball </td>
     <td align = "center"><b>A67</b> hush </td>
     <td align = "center"><b>A80</b> squat down </td>
     <td align = "center"><b>A84</b> play magic cube </td>
