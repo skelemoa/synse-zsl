@@ -1,5 +1,5 @@
 ### ReViSE
-Training and evaluation scripts for both SynSE and its gated variant have been provided.
+Training and evaluation scripts for both ReViSE and its gated variant have been provided.
  
 
 ### ReViSE (without gating):
@@ -20,7 +20,7 @@ wdir | - | Directory to store the weights to |
 <code> python revise/zsl_revise.py --ntu 60 --phase train --ss 5 --st r -- dataset_path 'dataset/shift_5_r/' --wdir 'trained_models/' --le bert -- ve shift </code>
 
 #### To evaluate performance on the NTU-60 55/5 split:
-<code> python synse/zsl_revise.py --ntu 60 --phase val --ss 5 --st r -- dataset_path 'dataset/shift_5_r/' --wdir 'trained_models/' --le bert -- ve shift </code>
+<code> python revise/zsl_revise.py --ntu 60 --phase val --ss 5 --st r -- dataset_path 'dataset/shift_5_r/' --wdir 'trained_models/' --le bert -- ve shift </code>
 
 
 ### ReViSE (with gating):
@@ -37,15 +37,15 @@ gpu | String | GPU Device Number |
 dataset |- | Path to the NTU dataset |
 wdir | - | Directory to store the weights to |
 
-The code to evaluate SynSE (using gating) is present in [gating_revise_eval.py](gating_revise_eval.py). <b> In addition to the arguments accepted by the training script </b>, this script accepts the following parameters:
+The code to evaluate ReViSE (using gating) is present in [gating_revise_eval.py](gating_revise_eval.py). <b> In addition to the arguments accepted by the training script </b>, this script accepts the following parameters:
 
 | Argument | Possible Values | Description |
 --- | --- | --- | 
 temp | Integer | Temperature used for gating |
 thresh | Float | The threshold used for gating |
 
-#### For example, to train SynSE (gating) on the NTU-60 55/5 split: 
-<code> python synse/gating_synse_model_training.py  </code>
+#### For example, to train ReViSE (gating) on the NTU-60 55/5 split: 
+<code> python revise/gating_revise_model_training.py  </code>
 
 #### To evaluate performance (gating) on the NTU-60 55/5 split:
-<code> python synse/gating_synse_model_eval.py  </code>
+<code> python revise/gating_revise_model_eval.py  </code>
