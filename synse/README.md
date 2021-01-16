@@ -9,10 +9,15 @@ The code for SynSE (without gating) is present in [synse_training.py](synse_trai
 --- | --- | --- | 
 ntu | 60; 120 | Which NTU dataset to use |
 ss | 5; 12 (For NTU-60); 24 (For NTU-120) | Which split to use |
-phase | train; val | Which mode to run the model in |
+phase | train; eval | Which mode to run the model in |
 ve | vacnn; shift; msg3d | Select the Visual Embedding Model |
 le | w2v; bert | Select the Language Embedding Model |
-dataset | - | Path to the NTU dataset |
+num_cycles | Integer | Number of cycles |
+num_epoch_per_cycle | Integer | Number of epochs per cycle |
+latent_size | Integer | Size of the latent dimension |
+--load_epoch | Integer | The epoch to be loaded |
+--load_classifier |  | Set if the pre-trained classifier is to be loaded |
+dataset |- | Path to the NTU dataset |
 wdir | - | Directory to store the weights to |
 
 #### For example, to train SynSE on the NTU-60 55/5 split: 
