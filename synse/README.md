@@ -40,7 +40,7 @@ le | w2v; bert | Select the Language Embedding Model |
 dataset |- | Path to the NTU dataset |
 wdir | - | Directory to store the weights to |
 
-The code to evaluate SynSE (using gating) is present in [gating_synse_model_eval.py](gating_synse_model_eval.py). <b> In addition to the arguments accepted by the training script, this script accepts the following parameters:
+The code to evaluate SynSE (using gating) is present in [gating_synse_model_eval.py](gating_synse_model_eval.py). <b> In addition to the arguments accepted by the training script </b>, this script accepts the following parameters:
 
 | Argument | Possible Values | Description |
 --- | --- | --- | 
