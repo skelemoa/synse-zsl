@@ -36,7 +36,7 @@ ntu | 60; 120 | Which NTU dataset to use |
 ss | 5; 12 (For NTU-60) | Which split to use |
 phase | train; val | Which mode to run the model in |
 ve | vacnn; shift; msg3d | Select the Visual Embedding Model |
-le | w2v; bert | Select the Language Embedding Model |
+le | w2v; bert_large | Select the Language Embedding Model |
 dataset |- | Path to the NTU dataset |
 wdir | - | Directory to store the weights to |
 
