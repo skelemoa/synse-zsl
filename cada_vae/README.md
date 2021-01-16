@@ -16,7 +16,7 @@ gpu | String | GPU Device Number |
 dataset |- | Path to the NTU dataset |
 wdir | - | Directory to store the weights to |
 
-#### For example, to train SynSE on the NTU-60 55/5 split: 
+#### For example, to train CADA-VAE on the NTU-60 55/5 split: 
 <code> python cada_vae/cada_vae_training.py --ntu 60 --phase train --ss 5 --st r -- dataset_path 'dataset/shift_5_r/' --wdir 'trained_models/' --le bert -- ve shift </code>
 
 #### To evaluate performance on the NTU-60 55/5 split:
