@@ -120,7 +120,7 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
 </ol>
   
 ## Experiments
-We provide the scripts necessary to obtain the results shown in the paper. They include training and evaluation scripts for ReViSE (cite), JPoSE, CADA-VAE and our model SynSE.
+We provide the scripts necessary to obtain the results shown in the paper. They include training and evaluation scripts for ReViSE \[1\], JPoSE\[2\], CADA-VAE\[3\] and our model SynSE.
 The scripts for each of the three models are present in their respective folders (jpose, revise, synse). 
 <br>
 A README is present in each folder detailing the use of the provided scripts for both training and evaluation.
@@ -136,3 +136,11 @@ A README is present in each folder detailing the use of the provided scripts for
 - [X] provide visual and language features for training and evaluation.
 
 link for visual and language features and trained models : https://drive.google.com/file/d/167xoVJQ684XU1uFhSKD6j9nAwHsnmEky/view?usp=sharing
+
+## References:
+<ol>
+<li>Hubert Tsai, Yao-Hung, Liang-Kang Huang, and Ruslan Salakhutdinov. "Learning robust visual-semantic embeddings." In Proceedings of the IEEE International Conference on Computer Vision, pp. 3571-3580. 2017. </li>
+<br>
+<li>Wray, Michael, Diane Larlus, Gabriela Csurka, and Dima Damen. "Fine-grained action retrieval through multiple parts-of-speech embeddings." In Proceedings of the IEEE International Conference on Computer Vision, pp. 450-459. 2019.</li>
+<br>
+<li>Schonfeld, Edgar, Sayna Ebrahimi, Samarth Sinha, Trevor Darrell, and Zeynep Akata. "Generalized zero-and few-shot learning via aligned variational autoencoders." In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 8247-8255. 2019.</li>
