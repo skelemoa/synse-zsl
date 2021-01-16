@@ -132,6 +132,7 @@ A README is present in each folder detailing the use of the provided scripts for
 - [X] push code for jpose
 - [ ] push data preparation code
 - [ ] push documentation
-- [ ] provide resources and trained models for evaluation
+- [X] provide trained models for evaluation
+- [X] provide visual and language features for training and evaluation.
 
-link for trained models : https://drive.google.com/drive/folders/113edMAjmHlX9G81ToTX2AC74ejv7_2o8?usp=sharing
+link for visual and language features and trained models : https://drive.google.com/file/d/167xoVJQ684XU1uFhSKD6j9nAwHsnmEky/view?usp=sharing
