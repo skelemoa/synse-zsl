@@ -16,8 +16,8 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
 ### Download the NTU-60 and the NTU-120 datasets
   Download the NTU-60 and NTU-120 datasets by requesting them from <a href="http://rose1.ntu.edu.sg/Datasets/actionRecognition.asp">here</a> .
   
-### Preprocessing
- To generate the splits used by us, place the downloaded dataset in the 'dataset' folder and run the [split generator script](). The unseen classes of the various splits are listed below:
+### Preprocessing and Splits
+The unseen classes of the various splits are listed below:
 
 ### NTU-60: 
 #### Unseen Classes (55/5 split):
@@ -126,14 +126,11 @@ The scripts for each of the three models are present in their respective folders
 A README is present in each folder detailing the use of the provided scripts for both training and evaluation.
 
 ### todo
-- [X] push code for synse
-- [X] push code for cadavae
-- [X] push code for revise
-- [X] push code for jpose
 - [ ] push data preparation code
 - [ ] push documentation
-- [X] provide trained models for evaluation
-- [X] provide visual and language features for training and evaluation.
+- [ ] Add 'Please cite our paper' once arxiv link is active
+- [ ] Add Papers with code badge
+- [ ] Add Awesome repos PR
 
 link for visual and language features and trained models : https://drive.google.com/file/d/167xoVJQ684XU1uFhSKD6j9nAwHsnmEky/view?usp=sharing
 
