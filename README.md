@@ -126,8 +126,7 @@ The scripts for each of the three models are present in their respective folders
 A README is present in each folder detailing the use of the provided scripts for both training and evaluation.
 
 ### todo
-- [ ] push data preparation code
-- [ ] push documentation
+- [ ] Make third pass through documentation
 - [ ] Add 'Please cite our paper' once arxiv link is active
 - [ ] Add Papers with code badge
 - [ ] Add Awesome repos PR
