@@ -47,10 +47,10 @@ def temp_scale(seen_features, T):
     return np.array([np.exp(i)/np.sum(np.exp(i)) for i in (seen_features + 1e-12)/T])
 
 
-unseen_zs = np.load('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/synse_' + str(ss) + '_r_unseen_zs.npy')
-seen_zs = np.load('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/synse_' + str(ss) + '_r_seen_zs.npy')
-unseen_train = np.load('/ssd_scratch/cvit/pranay.gupta/' + dataset +'/ztest_out.npy')
-seen_train = np.load('/ssd_scratch/cvit/pranay.gupta/' + dataset + '/val_out.npy')
+unseen_zs = np.load(wdir + '/' + le + '/synse_' + str(ss) + '_r_unseen_zs.npy')
+seen_zs = np.load(wdir + '/' + le + '/synse_' + str(ss) + '_r_seen_zs.npy')
+unseen_train = np.load(dataset +'/ztest_out.npy')
+seen_train = np.load(dataset + '/val_out.npy')
 
 
 for f in [ss]:
@@ -109,6 +109,6 @@ for f in [ss]:
     print('best threshold', best_thresh)
     print('best temperature', best_temp)
 
-with open('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir.replace('_val', '') + '/' + le + '/gating_model.pkl', 'wb') as f:
+with open(wdir.replace('_val', '') + '/' + le + '/gating_model.pkl', 'wb') as f:
     pkl.dump(best_model, f)
     f.close()

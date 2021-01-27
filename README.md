@@ -14,7 +14,7 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
 ## Data Preparation
 
 ### Creating the test-train splits.
-The unseen classes of the various splits are listed below. These splits are also provided under the <code> ./synse_resources/resources/label_splits </code>, which can be downloaded from [here](https://drive.google.com/file/d/167xoVJQ684XU1uFhSKD6j9nAwHsnmEky/view?usp=sharing). Random unseen 5 classes can be found in the ru5.npy file. This naming scheme is used for all splits. R-random, S-seen, U-unseen, V-validation split. 
+The unseen classes of the various splits are listed below. These splits are also provided under the <code> synse_resources/resources/label_splits </code>, which can be downloaded from [here](https://drive.google.com/file/d/167xoVJQ684XU1uFhSKD6j9nAwHsnmEky/view?usp=sharing). Place the <code> resources </code> folder in the root <code>synse-zsl </code> directory. Random unseen 5 classes can be found in the ru5.npy file. This naming scheme is used for all splits. R-random, S-seen, U-unseen, V-validation split. 
 
 ### NTU-60: 
 #### Unseen Classes (55/5 split):
@@ -109,22 +109,22 @@ The unseen classes of the various splits are listed below. These splits are also
 
 ### Visual Feature Generation:
 
-  We provide the visual features generated via SHIFT-GCN for the NTU-120 and NTU-60 dataset for the various splits. They can be found under the <code> ./synse_resources/ntu_results </code> repository, which is downloadable from [here](https://drive.google.com/file/d/167xoVJQ684XU1uFhSKD6j9nAwHsnmEky/view?usp=sharing). train.npy contains the visual features of the training data from the seen classes. ztest.npy contains the test data from the unseen classes. gtest.npy contains the test data from all the classes. 
+  We provide the visual features generated via SHIFT-GCN for the NTU-120 and NTU-60 dataset for the various splits. They can be found under the <code> synse_resources/ntu_results </code> repository, which is downloadable from [here](https://drive.google.com/file/d/167xoVJQ684XU1uFhSKD6j9nAwHsnmEky/view?usp=sharing). train.npy contains the visual features of the training data from the seen classes. ztest.npy contains the test data from the unseen classes. gtest.npy contains the test data from all the classes. 
 
   If you wish to generate the visual features yourself:
   1. Download the NTU-60 and NTU-120 datasets by requesting them from <a href="http://rose1.ntu.edu.sg/Datasets/actionRecognition.asp">here</a>.
   2. Create the test-train-val splits for the datasets using the split file created in the previous steps.
-  3. Train the visual feature generator. Follow [this](https://github.com/kchengiva/Shift-GCN) for training Shift-GCN. For each split a new feature generator has to be trained following the zero shot learning assumption. The trained Shift-GCN weights can be found under the repository. <code> ./synse_resources/ntu_results/shift_5_r/weights/ </code>
+  3. Train the visual feature generator. Follow [this](https://github.com/kchengiva/Shift-GCN) for training Shift-GCN. For each split a new feature generator has to be trained following the zero shot learning assumption. The trained Shift-GCN weights can be found under the repository. <code> synse_resources/ntu_results/shift_5_r/weights/ </code>
   4. Save the features for train data, unseen test data(zsl) and the entire test data(gzsl). 
   
 
  
 ### Text feature generators
-  We provide the generated language features as well, for the labels in NTU60, and NTU120 dataset. They can be found in <code> ./synse_resources/resources/ </code>
+  We provide the generated language features as well, for the labels in NTU60, and NTU120 dataset. They can be found in <code> ./synse_resources/resources/ </code>. Place the <code>resources</code> folder in the root <code> synse-zsl</code> directory.
 
   If you wish to generate the language features yourself.
-    1. Word2Vec: Download the <a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit">Pre-Trained Word2Vec Vectors</a> and extract the contents of the archive </li>
-    2. For Sentence-BERT, we use the sentence-transformers package from [here](https://github.com/UKPLab/sentence-transformers). We use the stsb-bert-large model.
+  1. Word2Vec: Download the <a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit">Pre-Trained Word2Vec Vectors</a> and extract the contents of the archive </li>
+  2. For Sentence-BERT, we use the sentence-transformers package from [here](https://github.com/UKPLab/sentence-transformers). We use the stsb-bert-large model.
 
   
 ## Experiments
@@ -144,3 +144,5 @@ A README is present in each folder detailing the use of the provided scripts for
 <li>Wray, Michael, Diane Larlus, Gabriela Csurka, and Dima Damen. "Fine-grained action retrieval through multiple parts-of-speech embeddings." In Proceedings of the IEEE International Conference on Computer Vision, pp. 450-459. 2019.</li>
 <br>
 <li>Schonfeld, Edgar, Sayna Ebrahimi, Samarth Sinha, Trevor Darrell, and Zeynep Akata. "Generalized zero-and few-shot learning via aligned variational autoencoders." In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 8247-8255. 2019.</li>
+<br>
+<li>Ke Cheng and Yifan Zhang and Xiangyu He and Weihan Chen and Jian Cheng and Hanqing Lu. "Skeleton-Based Action Recognition with Shift Graph Convolutional Network."  In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2020</li>

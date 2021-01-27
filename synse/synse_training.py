@@ -70,10 +70,10 @@ device = torch.device("cuda")
 print(torch.cuda.device_count())
 
 
-if not os.path.exists('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir):
-    os.mkdir('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir)
-if not os.path.exists('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le):
-    os.mkdir('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le)
+if not os.path.exists(wdir):
+    os.mkdir(wdir)
+if not os.path.exists(wdir + '/' + le):
+    os.mkdir(wdir + '/' + le)
 
 if ve == 'vacnn':
     vis_emb_input_size = 2048
@@ -167,12 +167,12 @@ def save_checkpoint(state, filename='checkpoint.pth.tar', is_best=False):
         shutil.copyfile(filename, 'model_best.pth.tar')
 
 def load_models(load_epoch):
-    se_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/se_'+str(load_epoch)+'.pth.tar'
-    sd_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/sd_'+str(load_epoch)+'.pth.tar'
-    vte_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/tve_'+str(load_epoch)+'.pth.tar'
-    vtd_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/tvd_'+str(load_epoch)+'.pth.tar'
-    nte_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/tne_'+str(load_epoch)+'.pth.tar'
-    ntd_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/tnd_'+str(load_epoch)+'.pth.tar'
+    se_checkpoint = wdir + '/' + le + '/se_'+str(load_epoch)+'.pth.tar'
+    sd_checkpoint = wdir + '/' + le + '/sd_'+str(load_epoch)+'.pth.tar'
+    vte_checkpoint = wdir + '/' + le + '/tve_'+str(load_epoch)+'.pth.tar'
+    vtd_checkpoint = wdir + '/' + le + '/tvd_'+str(load_epoch)+'.pth.tar'
+    nte_checkpoint = wdir + '/' + le + '/tne_'+str(load_epoch)+'.pth.tar'
+    ntd_checkpoint = wdir + '/' + le + '/tnd_'+str(load_epoch)+'.pth.tar'
 
     sequence_encoder.load_state_dict(torch.load(se_checkpoint)['state_dict'])
     sequence_decoder.load_state_dict(torch.load(sd_checkpoint)['state_dict'])
@@ -277,12 +277,12 @@ def train_one_cycle(cycle_num, cycle_length):
     return 
 
 def save_model(epoch):
-    se_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/se_'+str(epoch)+'.pth.tar'
-    sd_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/sd_'+str(epoch)+'.pth.tar'
-    tve_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/tve_'+str(epoch)+'.pth.tar'
-    tvd_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/tvd_'+str(epoch)+'.pth.tar'
-    tne_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/tne_'+str(epoch)+'.pth.tar'
-    tnd_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/tnd_'+str(epoch)+'.pth.tar'
+    se_checkpoint = wdir + '/' + le + '/se_'+str(epoch)+'.pth.tar'
+    sd_checkpoint = wdir + '/' + le + '/sd_'+str(epoch)+'.pth.tar'
+    tve_checkpoint = wdir + '/' + le + '/tve_'+str(epoch)+'.pth.tar'
+    tvd_checkpoint = wdir + '/' + le + '/tvd_'+str(epoch)+'.pth.tar'
+    tne_checkpoint = wdir + '/' + le + '/tne_'+str(epoch)+'.pth.tar'
+    tnd_checkpoint = wdir + '/' + le + '/tnd_'+str(epoch)+'.pth.tar'
 
     save_checkpoint({ 'epoch': epoch + 1,
         'state_dict': sequence_encoder.state_dict(),
@@ -315,7 +315,7 @@ def train_classifier():
 
     cls = MLP([latent_size, ss]).to(device)
     if load_classifier == True:
-        cls_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/clasifier.pth.tar'
+        cls_checkpoint = wdir + '/' + le + '/clasifier.pth.tar'
         cls.load_state_dict(torch.load(cls_checkpoint)['state_dict'])
     else:
         cls_optimizer = optim.Adam(cls.parameters(), lr = 0.001)
@@ -401,7 +401,6 @@ def train_classifier():
 
     
     val_out_embs = np.array([j.cpu().numpy() for i in val_out_embs for j in i])
-#     np.save('/ssd_scratch/cvit/pranay.gupta/unseen_out/synse_5_r_gzsl_zs.npy', val_out_embs)
     return zsl_accuracy, val_out_embs, cls
 
 def get_seen_zs_embeddings(cls):
@@ -433,7 +432,7 @@ def get_seen_zs_embeddings(cls):
     return out_val_embeddings
     
 def save_classifier(cls):
-    cls_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/clasifier.pth.tar'
+    cls_checkpoint = wdir + '/' + le + '/clasifier.pth.tar'
     save_checkpoint({
         'state_dict': cls.state_dict(),
     #     'optimizer': optimizer.state_dict()
@@ -468,11 +467,11 @@ if __name__ == "__main__":
                 print('zsl_accuracy increased to ', best, ' on cycle ', num_cycle)
                 print('saved checkpoint')
                 if phase == 'train':
-                    np.save('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/synse_' + str(ss) + '_r_gzsl_zs.npy', val_out_embs)
+                    np.save(wdir + '/' + le + '/synse_' + str(ss) + '_r_gzsl_zs.npy', val_out_embs)
                 else:
-                    np.save('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/synse_' + str(ss) + '_r_unseen_zs.npy', val_out_embs)
+                    np.save(wdir + '/' + le + '/synse_' + str(ss) + '_r_unseen_zs.npy', val_out_embs)
                     seen_zs_embeddings = get_seen_zs_embeddings(cls)
-                    np.save('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/synse_' + str(ss) + '_r_seen_zs.npy', seen_zs_embeddings)
+                    np.save(wdir + '/' + le + '/synse_' + str(ss) + '_r_seen_zs.npy', seen_zs_embeddings)
                     
                 
     
