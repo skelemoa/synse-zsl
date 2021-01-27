@@ -1,51 +1,46 @@
-### JPoSE
-Training and evaluation scripts for both JPoSE and its gated variant have been provided.
+### JPOSE(FGAR)
+Training and evaluation scripts for FGAR and the gating model have been provided.
  
-
-### JPoSE (without gating):
-The code for JPoSE (without gating) is present in [zsl_revise.py](zsl_revise.py). The script accepts the following parameters:
+### Training FGAR for ZSL:
+1. The code for training FGAR for ZSL is present in [zsl_fgar.py](zsl_fgar.py). The script accepts the following parameters:
 
 | Argument | Possible Values | Description |
 --- | --- | --- | 
 ntu | 60; 120 | Which NTU dataset to use |
 ss | 5; 12 (For NTU-60); 24 (For NTU-120) | Which split to use |
-phase | train; val | Which mode to run the model in |
-ve | vacnn; shift | Select the Visual Embedding Model |
+st | r (for random) | Split type |
+phase | train; val | train(required for zsl), (once with train and once with val for gzsl) |
+ve | shift; msg3d | Select the Visual Embedding Model |
 le | w2v; bert | Select the Language Embedding Model |
-gpu | String | GPU Device Number |
-dataset |- | Path to the NTU dataset |
-wdir | - | Directory to store the weights to |
+dataset |- | Path to the generated visual features |
+wdir | - | Path to the directory to store the weights in |
+gpu | - | which gpu device number to train on |
 
-#### For example, to train JPoSE on the NTU-60 55/5 split: 
-<code> python revise/zsl_fgar.py --ntu 60 --phase train --ss 5 --st r -- dataset_path 'dataset/shift_5_r/' --wdir 'trained_models/' --le bert -- ve shift </code>
-
-#### To evaluate performance on the NTU-60 55/5 split:
-<code> python revise/zsl_fgar.py --ntu 60 --phase val --ss 5 --st r -- dataset_path 'dataset/shift_5_r/' --wdir 'trained_models/' --le bert -- ve shift </code>
+2. Use the below command for training JPOSE for zsl for 55/5 split.
+    <code> python zsl_fgar.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r' --le bert -- ve shift --gpu 0</code>
 
 
-### JPoSE (with gating):
-The code to train JPoSE (using gating) is present in [gating_fgar_model_training.py](gating_fgar_model_training.py). The script accepts the following parameters:
+### Train the gating model for FGAR:
+1. The code to train FGAR (using gating) is present in [gating_fgar_model_training.py](gating_fgar_model_training.py). The script accepts the following parameters:
 
 | Argument | Possible Values | Description |
 --- | --- | --- | 
 ntu | 60; 120 | Which NTU dataset to use |
 ss | 5; 12 (For NTU-60) | Which split to use |
 phase | train; val | Which mode to run the model in |
-ve | vacnn; shift; msg3d | Select the Visual Embedding Model |
+ve | shift; msg3d | Select the Visual Embedding Model |
 le | w2v; bert_large | Select the Language Embedding Model |
-gpu | String | GPU Device Number |
-dataset |- | Path to the NTU dataset |
-wdir | - | Directory to store the weights to |
+dataset |- | Path to the visual features |
+wdir | - | Directory to store the weights in |
 
-The code to evaluate JPoSE (using gating) is present in [gating_fgar_eval.py](gating_fgar_eval.py). <b> In addition to the arguments accepted by the training script </b>, this script accepts the following parameters:
+2. Training the gating model for 55/5 split:
 
-| Argument | Possible Values | Description |
---- | --- | --- | 
-temp | Integer | Temperature used for gating |
-thresh | Float | The threshold used for gating |
+    1. First train FGAR for ZSL in train phase:
+    <code> python zsl_fgar.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r' --le bert -- ve shift --gpu 0</code>
+    2. Then train FGAR for ZSL in eval phase(Please note the difference in the wdir and dataset values):
+    <code> python zsl_fgar.py --ntu 60 --phase val --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_val_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r_val' --le bert -- ve shift --gpu 0</code>
+    3. Train the gating model using the following command.
+    <code> python gating_fgar_model_training.py --ss 5 --st r --dataset 'synse_resources/ntu_results/shift_val_5_r/' --phase val --wdir synse_resources/language_modelling/fgar_5_r_val --le bert --ve shift --ntu 60 </code>
+    4. Finally run the gating model eval script.
+    <code> python gating_fgar_model_eval.py --ss 5 --st r --phase train --dataset synse_resources/ntu_results/shift_5_r --wdir synse_resources/language_modelling/fgar_5_r --le bert --ve shift --thresh 'Use value from output of previous step' --temp 'use value from output of previous step' --ntu 60 </code>
 
-#### For example, to train JPoSE (gating) on the NTU-60 55/5 split: 
-<code> python revise/gating_jpose_model_training.py  </code>
-
-#### To evaluate performance (gating) on the NTU-60 55/5 split:
-<code> python revise/gating_jpose_model_eval.py  </code>

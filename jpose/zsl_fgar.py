@@ -47,10 +47,10 @@ device = torch.device("cuda")
 print(torch.cuda.device_count())
 
 
-if not os.path.exists('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir):
-    os.mkdir('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir)
-if not os.path.exists('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le):
-    os.mkdir('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le)
+if not os.path.exists(wdir):
+    os.mkdir(wdir)
+if not os.path.exists(wdir + '/' + le):
+    os.mkdir(wdir + '/' + le)
 
 criterion2 = nn.MSELoss().to(device)
 
@@ -327,13 +327,13 @@ val_acc = 0
 print(VerbPosMmen)
 print(NounPosMmen)
 if phase == 'val':
-    npm_zcheckpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/' + 'gvacnn_NPM.pth.tar'
-    vpm_zcheckpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/' + 'gvacnn_VPM.pth.tar'
-    jm_zcheckpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/'+ wdir + '/' + le + '/' + 'gvacnn_JM.pth.tar'
+    npm_zcheckpoint =  wdir + '/' + le + '/' + 'gvacnn_NPM.pth.tar'
+    vpm_zcheckpoint = wdir + '/' + le + '/' + 'gvacnn_VPM.pth.tar'
+    jm_zcheckpoint =  wdir + '/' + le + '/' + 'gvacnn_JM.pth.tar'
 else:
-    npm_zcheckpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/' + 'main_gvacnn_NPM.pth.tar'
-    vpm_zcheckpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/' + 'main_gvacnn_VPM.pth.tar'
-    jm_zcheckpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/'+ wdir + '/' + le + '/' + 'main_gvacnn_JM.pth.tar'
+    npm_zcheckpoint =  wdir + '/' + le + '/' + 'main_gvacnn_NPM.pth.tar'
+    vpm_zcheckpoint =  wdir + '/' + le + '/' + 'main_gvacnn_VPM.pth.tar'
+    jm_zcheckpoint = wdir + '/' + le + '/' + 'main_gvacnn_JM.pth.tar'
 for epoch in range(0, max_epochs):
         t_start = time.time()
         train_loss, train_acc = train(train_loader, epoch, margin)        

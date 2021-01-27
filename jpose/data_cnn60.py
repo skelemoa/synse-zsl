@@ -159,7 +159,7 @@ class NTUDataLoaders(object):
                 self.metric = 'CS'
             else:
                 self.metric = 'CV'
-        path = osp.join('/ssd_scratch/cvit/pranay.gupta/', self.dataset)
+        path = osp.join(self.dataset)
         
         if 'ntu_splits_val' in path:
             f = h5py.File(path, 'r')
