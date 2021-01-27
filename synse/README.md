@@ -6,9 +6,9 @@ Training and evaluation scripts for SynSE and the gating model have been provide
 1. The visual features can be found in the <code> synse_resources/ntu_results </code> directory. 
 2. The pretrained models can be found in the <code> synse_resources/language_modelling </code> directory. 
 3. For evaluating on the 5 random split of NTU-60
-    <code> python synse_training.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/repo_test_synse_5_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_cycle_per_epoch 1700 --latent_size 100 --load_epoch 8499 --mode eval --gpu 0</code>
+    <code> python synse_training.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/repo_test_synse_5_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_cycle_per_epoch 1700 --latent_size 100 --load_epoch 3399 --mode eval --gpu 0</code>
 4. For evaluating on the 12 random split of NTU-60
-    <code> python synse_training.py --ntu 60 --phase train --ss 12 --st r -- dataset 'synse_resources/ntu_results/shift_12_r/' --wdir 'synse_resources/language_modelling/repo_test_synse_12_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_cycle_per_epoch 1900 --latent_size 100 --load_epoch 1699 --mode eval --gpu 0</code>
+    <code> python synse_training.py --ntu 60 --phase train --ss 12 --st r -- dataset 'synse_resources/ntu_results/shift_12_r/' --wdir 'synse_resources/language_modelling/repo_test_synse_12_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_cycle_per_epoch 1900 --latent_size 100 --load_epoch 6799 --mode eval --gpu 0</code>
 5. For evaluating on the 10 random split of NTU-120
     <code> python synse/synse_training.py --ntu 120 --phase train --ss 10 --st r -- dataset 'synse_resources/ntu_results/shift_10_r/' --wdir 'synse_resources/language_modelling/repo_test_synse_10_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_cycle_per_epoch 1900 --latent_size 200 --load_epoch 7599 --mode eval --gpu 0</code>
 6. For evaluating on the 24 random split of NTU-120
@@ -66,6 +66,9 @@ thresh | - | Threshold for the binary classifier in the gating model |
 temp | - | Temperature scaling factor in the gating model |
 
 2. Training the gating model for 55/5 split:
+
+To only train the gating model follow from step 3 with wdir value as 'synse_resources/language_modelling/repo_test_synse_5_r_val', otherwise continue from step 1.
+
     1. First train SYNSE for ZSL in train phase:
     <code> python synse_training.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/synse_5_r' --le bert -- ve shift --num_cycles 10 --num_cycle_per_epoch 1700 --latent_size 100 --mode train --gpu 0</code>
     2. Then train SYNSE for ZSL in eval phase(Please note the difference in the wdir and dataset values):

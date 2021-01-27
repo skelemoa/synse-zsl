@@ -73,7 +73,7 @@ else:
     seen_inds = np.load('../resources/label_splits/'+ st + 's' + str(num_classes - ss) + '.npy')
 
 
-tars = np.load('/ssd_scratch/cvit/pranay.gupta/' + dataset + '/g_label.npy')
+tars = np.load(dataset + '/g_label.npy')
 
 test_y = []
 for i in tars:
@@ -82,8 +82,8 @@ for i in tars:
     else:
         test_y.append(1)
 
-test_zs = np.load('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/cadavae_' + str(ss) + '_r_gzsl_zs.npy')
-test_seen = np.load('/ssd_scratch/cvit/pranay.gupta/' + dataset + '/gtest_out.npy')
+test_zs = np.load(wdir + '/' + le + '/cadavae_' + str(ss) + '_r_gzsl_zs.npy')
+test_seen = np.load(dataset + '/gtest_out.npy')
 
 
 def temp_scale(seen_features, T):
@@ -100,7 +100,7 @@ gating_test_y = test_y
 
 
 import pickle as pkl
-with open('/ssd_scratch/cvit/pranay.gupta/language_modelling/'+ wdir + '/' + le + '/gating_model.pkl', 'rb') as f:
+with open(wdir + '/' + le + '/gating_model.pkl', 'rb') as f:
     gating_model = pkl.load(f)
 
 
