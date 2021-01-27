@@ -38,9 +38,9 @@ wdir | - | Directory to store the weights in |
     1. First train FGAR for ZSL in train phase:
     <code> python zsl_fgar.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r' --le bert -- ve shift --gpu 0</code>
     2. Then train FGAR for ZSL in eval phase(Please note the difference in the wdir and dataset values):
-    <code> python zsl_fgar.py --ntu 60 --phase val --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_val_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r_val' --le bert -- ve shift --gpu 0</code>
+    <code> python zsl_fgar.py --ntu 60 --phase val --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_val_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r' --le bert -- ve shift --gpu 0</code>
     3. Train the gating model using the following command.
-    <code> python gating_fgar_model_training.py --ss 5 --st r --dataset 'synse_resources/ntu_results/shift_val_5_r/' --phase val --wdir synse_resources/language_modelling/fgar_5_r_val --le bert --ve shift --ntu 60 </code>
+    <code> python gating_fgar_model_training.py --ss 5 --st r --dataset 'synse_resources/ntu_results/shift_val_5_r/' --phase val --wdir synse_resources/language_modelling/fgar_5_r --le bert --ve shift --ntu 60 </code>
     4. Finally run the gating model eval script.
     <code> python gating_fgar_model_eval.py --ss 5 --st r --phase train --dataset synse_resources/ntu_results/shift_5_r --wdir synse_resources/language_modelling/fgar_5_r --le bert --ve shift --thresh 'Use value from output of previous step' --temp 'use value from output of previous step' --ntu 60 </code>
 

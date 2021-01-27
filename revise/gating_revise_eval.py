@@ -65,8 +65,8 @@ device = torch.device("cuda")
 print(torch.cuda.device_count())
 
 
-zvisae_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le +'/main_gvisae_best.pth.tar'
-zattae_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le +'/main_gattae_best.pth.tar'
+zvisae_checkpoint =  wdir + '/' + le +'/main_gvisae_best.pth.tar'
+zattae_checkpoint =  wdir + '/' + le +'/main_gattae_best.pth.tar'
 criterion2 = nn.MSELoss().to(device)
 att_input_size = 1024
 att_intermediate_size = 512
@@ -214,7 +214,7 @@ def validate(train_loader, epoch, margin):
     return scores
 
 zsl_loss, zsl_acc, test_zs = zsl_validate(val_loader, visae, attae, 0)
-test_seen = np.load('/ssd_scratch/cvit/pranay.gupta/' + dataset_path + '/gtest_out.npy')
+test_seen = np.load(dataset_path + '/gtest_out.npy')
 
 tars = []
 for i, (_, target) in enumerate(val_loader):
@@ -241,7 +241,7 @@ feat_test_seen = np.sort(prob_test_seen, 1)[:,::-1][:,:ss]
 gating_test_x = np.concatenate([feat_test_zs, feat_test_seen], 1)
 gating_test_y = test_y
 
-with open('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/gating_model.pkl', 'rb') as f:
+with open(wdir + '/' + le + '/gating_model.pkl', 'rb') as f:
     gating_model = pkl.load(f)
 
 prob_gate = gating_model.predict_proba(gating_test_x)

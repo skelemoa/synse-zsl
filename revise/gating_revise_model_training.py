@@ -58,8 +58,8 @@ device = torch.device("cuda")
 print(torch.cuda.device_count())
 
 
-zvisae_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/gvisae_best.pth.tar'
-zattae_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/gattae_best.pth.tar'
+zvisae_checkpoint = wdir + '/' + le + '/gvisae_best.pth.tar'
+zattae_checkpoint = wdir + '/' + le + '/gattae_best.pth.tar'
 criterion2 = nn.MSELoss().to(device)
 att_input_size = 1024
 att_intermediate_size = 512
@@ -270,6 +270,6 @@ for f in [ss]:
     print('best temperature', best_temp)
 
 
-with open('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/gating_model.pkl', 'wb') as f:
+with open(wdir + '/' + le + '/gating_model.pkl', 'wb') as f:
     pkl.dump(best_model, f)
     f.close()

@@ -47,10 +47,10 @@ np.random.seed(seed)
 device = torch.device("cuda")
 print(torch.cuda.device_count())
 
-if not os.path.exists('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir):
-    os.mkdir('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir)
-if not os.path.exists('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le):
-    os.mkdir('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le)
+if not os.path.exists( wdir):
+    os.mkdir( wdir)
+if not os.path.exists( wdir + '/' + le):
+    os.mkdir( wdir + '/' + le)
 
 criterion2 = nn.MSELoss().to(device)
 
@@ -316,11 +316,11 @@ max_epochs = 300
 gbest = 0
 zbest = 0
 if phase == 'val':
-    zvisae_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/' + 'gvisae_best.pth.tar'
-    zattae_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/' + 'gattae_best.pth.tar'
+    zvisae_checkpoint =  wdir + '/' + le + '/' + 'gvisae_best.pth.tar'
+    zattae_checkpoint =  wdir + '/' + le + '/' + 'gattae_best.pth.tar'
 else:
-    zvisae_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/' + 'main_gvisae_best.pth.tar'
-    zattae_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/' + 'main_gattae_best.pth.tar'
+    zvisae_checkpoint =  wdir + '/' + le + '/' + 'main_gvisae_best.pth.tar'
+    zattae_checkpoint =  wdir + '/' + le + '/' + 'main_gattae_best.pth.tar'
 early_stop = 0
 print(visae)
 print(attae)
