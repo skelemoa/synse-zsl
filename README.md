@@ -1,4 +1,4 @@
-# SynSE
+#SynSE
 Original PyTorch implementation for 'Syntactically Guided Generative Embeddings For Zero Shot Skeleton Action Recognition'
 
 <img src = "Images/SynSE_arch.png" />
@@ -11,13 +11,10 @@ Original PyTorch implementation for 'Syntactically Guided Generative Embeddings 
   <li> Scikit-Learn </li>  
 </ul>
 
-## Installation
+## Data Preparation
 
-### Download the NTU-60 and the NTU-120 datasets
-  Download the NTU-60 and NTU-120 datasets by requesting them from <a href="http://rose1.ntu.edu.sg/Datasets/actionRecognition.asp">here</a> .
-  
-### Preprocessing and Splits
-The unseen classes of the various splits are listed below:
+### Creating the test-train splits.
+The unseen classes of the various splits are listed below. These splits are also provided under the <code> ./synse_resources/resources/label_splits </code>, which can be downloaded from [here](https://drive.google.com/file/d/167xoVJQ684XU1uFhSKD6j9nAwHsnmEky/view?usp=sharing). Random unseen 5 classes can be found in the ru5.npy file. This naming scheme is used for all splits. R-random, S-seen, U-unseen, V-validation split. 
 
 ### NTU-60: 
 #### Unseen Classes (55/5 split):
@@ -34,22 +31,22 @@ The unseen classes of the various splits are listed below:
 #### Unseen Classes (48/12 split):
 <table>
   <tr>
-    <td align = "center"><b>A2</b> eat meal </td>
-    <td align = "center"><b>A3</b> brush teeth </td>
-    <td align = "center"><b>A15</b> take off jacket </td>
-    <td align = "center"><b>A18</b> put on glasses </td>
-    <td align = "center"><b>A21</b> take off a hat/cap </td>
+    <td align = "center"><b>A4</b> brush hair </td>
+    <td align = "center"><b>A6</b> pick up </td>
+    <td align = "center"><b>A10</b> clapping </td>
+    <td align = "center"><b>A13</b> tear up paper </td>
+    <td align = "center"><b>A16</b> put on shoe </td>
   </tr>
   <tr>
-    <td align = "center"><b>A25</b> reach into pocket </td>
-    <td align = "center"><b>A32</b> taking a selfie </td>
-    <td align = "center"><b>A38</b> salute </td>
-    <td align = "center"><b>A40</b> cross hands in front </td>
-    <td align = "center"><b>A44</b> headache </td>
-  </tr>
-  <tr>
-    <td align = "center"><b>A47</b> neck pain </td>
+    <td align = "center"><b>A41</b> sneeze or cough </td>
+    <td align = "center"><b>A43</b> falling down </td>
+    <td align = "center"><b>A48</b> nausea or vomiting </td>
+    <td align = "center"><b>A52</b> pushing </td>
     <td align = "center"><b>A57</b> touch pocket </td>
+  </tr>
+  <tr>
+    <td align = "center"><b>A59</b> walking towards </td>
+    <td align = "center"><b>A60</b> walking apart </td>
   </tr>
 </table>
 
@@ -110,14 +107,25 @@ The unseen classes of the various splits are listed below:
   </tr>
 </table>
 
+### Visual Feature Generation:
+
+  We provide the visual features generated via SHIFT-GCN for the NTU-120 and NTU-60 dataset for the various splits. They can be found under the <code> ./synse_resources/ntu_results </code> repository, which is downloadable from [here](https://drive.google.com/file/d/167xoVJQ684XU1uFhSKD6j9nAwHsnmEky/view?usp=sharing). train.npy contains the visual features of the training data from the seen classes. ztest.npy contains the test data from the unseen classes. gtest.npy contains the test data from all the classes. 
+
+  If you wish to generate the visual features yourself:
+  1. Download the NTU-60 and NTU-120 datasets by requesting them from <a href="http://rose1.ntu.edu.sg/Datasets/actionRecognition.asp">here</a>.
+  2. Create the test-train-val splits for the datasets using the split file created in the previous steps.
+  3. Train the visual feature generator. Follow [this](https://github.com/kchengiva/Shift-GCN) for training Shift-GCN. For each split a new feature generator has to be trained following the zero shot learning assumption. The trained Shift-GCN weights can be found under the repository. <code> ./synse_resources/ntu_results/shift_5_r/weights/ </code>
+  4. Save the features for train data, unseen test data(zsl) and the entire test data(gzsl). 
+  
+
  
-### Setting up text embedding generators
-<ol> 
-  <li> Word2Vec: Download the <a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit">Pre-Trained Word2Vec Vectors</a> and extract the contents of the archive </li>
-  <li> For BERT, we use the sentence-transformers package. It can be installed using pip: 
-    <br>
-    <code> pip install -U sentence-transformers </code>
-</ol>
+### Text feature generators
+  We provide the generated language features as well, for the labels in NTU60, and NTU120 dataset. They can be found in <code> ./synse_resources/resources/ </code>
+
+  If you wish to generate the language features yourself.
+    1. Word2Vec: Download the <a href="https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit">Pre-Trained Word2Vec Vectors</a> and extract the contents of the archive </li>
+    2. For Sentence-BERT, we use the sentence-transformers package from [here](https://github.com/UKPLab/sentence-transformers). We use the stsb-bert-large model.
+
   
 ## Experiments
 We provide the scripts necessary to obtain the results shown in the paper. They include training and evaluation scripts for ReViSE \[1\], JPoSE\[2\], CADA-VAE\[3\] and our model SynSE.
@@ -125,13 +133,9 @@ The scripts for each of the three models are present in their respective folders
 <br>
 A README is present in each folder detailing the use of the provided scripts for both training and evaluation.
 
-### todo
-- [ ] Make third pass through documentation
-- [ ] Add 'Please cite our paper' once arxiv link is active
-- [ ] Add Papers with code badge
-- [ ] Add Awesome repos PR
+### Upcoming
+- arxiv link
 
-link for visual and language features and trained models : https://drive.google.com/file/d/167xoVJQ684XU1uFhSKD6j9nAwHsnmEky/view?usp=sharing
 
 ## References:
 <ol>
