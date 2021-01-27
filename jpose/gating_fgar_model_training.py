@@ -80,9 +80,9 @@ elif le == 'w2v':
 else:
     pass
 
-npm_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/gvacnn_NPM.pth.tar'
-vpm_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/gvacnn_VPM.pth.tar'
-jm_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/gvacnn_JM.pth.tar'
+npm_checkpoint = wdir + '/' + le + '/gvacnn_NPM.pth.tar'
+vpm_checkpoint =  wdir + '/' + le + '/gvacnn_VPM.pth.tar'
+jm_checkpoint =  wdir + '/' + le + '/gvacnn_JM.pth.tar'
 NounPosMmen = Mmen(vis_emb_input_size, noun_emb_input_size, output_size).to(device)
 NounPosMmen.load_state_dict(torch.load(npm_checkpoint)['npm_state_dict'], strict=False)
 NounPosMmen_optimizer = optim.Adam(NounPosMmen.parameters(), lr=0.0001)
@@ -327,6 +327,6 @@ for f in [ss]:
     print('best temperature', best_temp)
         
 
-with open('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/gating_model.pkl', 'wb') as f:
+with open(wdir + '/' + le + '/gating_model.pkl', 'wb') as f:
     pkl.dump(best_model, f)
     f.close()

@@ -84,9 +84,9 @@ elif le == 'w2v':
 else:
     pass
 
-npm_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/main_gvacnn_NPM.pth.tar'
-vpm_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/main_gvacnn_VPM.pth.tar'
-jm_checkpoint = '/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/main_gvacnn_JM.pth.tar'
+npm_checkpoint =  wdir + '/' + le + '/main_gvacnn_NPM.pth.tar'
+vpm_checkpoint = wdir + '/' + le + '/main_gvacnn_VPM.pth.tar'
+jm_checkpoint =  wdir + '/' + le + '/main_gvacnn_JM.pth.tar'
 NounPosMmen = Mmen(vis_emb_input_size, noun_emb_input_size, output_size).to(device)
 NounPosMmen.load_state_dict(torch.load(npm_checkpoint)['npm_state_dict'], strict=False)
 NounPosMmen_optimizer = optim.Adam(NounPosMmen.parameters(), lr=0.0001)
@@ -273,7 +273,7 @@ def validate(train_loader, epoch, margin):
     return scores
 
 zsl_loss, zsl_acc, test_zs = zsl_validate(val_loader, 0, 0.3)
-test_seen = np.load('/ssd_scratch/cvit/pranay.gupta/' + dataset_path + '/gtest_out.npy')
+test_seen = np.load(dataset_path + '/gtest_out.npy')
 
 
 tars = []
@@ -302,7 +302,7 @@ feat_test_seen = np.sort(prob_test_seen, 1)[:,::-1][:,:ss]
 
 gating_test_x = np.concatenate([feat_test_zs, feat_test_seen], 1)
 gating_test_y = test_y
-with open('/ssd_scratch/cvit/pranay.gupta/language_modelling/' + wdir + '/' + le + '/gating_model.pkl', 'rb') as f:
+with open(wdir + '/' + le + '/gating_model.pkl', 'rb') as f:
     gating_model = pkl.load(f)
 
 
