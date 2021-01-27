@@ -72,4 +72,6 @@ temp | - | Temperature scaling factor in the gating model |
     <code> python synse_training.py --ntu 60 --phase val --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_val_5_r/' --wdir 'synse_resources/language_modelling/synse_5_r_val' --le bert -- ve shift --num_cycles 10 --num_cycle_per_epoch 1700 --latent_size 100 --mode train --gpu 0</code>
     3. Train the gating model using the following command.
     <code> python gating_synse_model_training.py --ss 5 --st r --dataset 'synse_resources/ntu_results/shift_val_5_r/' --phase val --wdir synse_resources/language_modelling/synse_5_r_val --le bert --ve shift --ntu 60 </code>
+    4. Finally run the gating model eval script.
+    <code> python gating_synse_model_eval.py --ss 5 --st r --phase train --dataset synse_resources/ntu_results/shift_5_r --wdir synse_resources/language_modelling/synse_5_r --le bert --ve shift --thresh 'Use value from output of previous step' --temp 'use value from output of previous step' --ntu 60 </code>
 
