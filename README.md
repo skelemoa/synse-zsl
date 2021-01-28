@@ -1,5 +1,5 @@
 # SynSE
-Original PyTorch implementation for 'Syntactically Guided Generative Embeddings For Zero Shot Skeleton Action Recognition'
+Original PyTorch implementation for ['Syntactically Guided Generative Embeddings For Zero Shot Skeleton Action Recognition](https://arxiv.org/pdf/2101.11530.pdf)'
 
 <img src = "Images/SynSE_arch.png" />
 
@@ -132,9 +132,6 @@ We provide the scripts necessary to obtain the results shown in the paper. They 
 The scripts for each of the three models are present in their respective folders (jpose, revise, synse). 
 <br>
 A README is present in each folder detailing the use of the provided scripts for both training and evaluation.
-
-### Upcoming
-- arxiv link
 
 
 ## References:
