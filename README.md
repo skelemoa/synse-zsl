@@ -8,8 +8,8 @@ Original PyTorch implementation for ['Syntactically Guided Generative Embeddings
 ## Dependencies
 
 <ul>
-  <li> Python >= 3.6 </li>
-  <li> Torchvision </li>
+  <li> Python >= 3.5 </li>
+  <li> Torch == 1.2.0 </li>
   <li> Scikit-Learn </li>  
 </ul>
 
