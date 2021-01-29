@@ -3,7 +3,7 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/syntactically-guided-generative-embeddings-1/zero-shot-skeletal-action-recognition-on-ntu-1)](https://paperswithcode.com/sota/zero-shot-skeletal-action-recognition-on-ntu-1?p=syntactically-guided-generative-embeddings-1)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/syntactically-guided-generative-embeddings-1/generalized-zero-shot-skeletal-action-1)](https://paperswithcode.com/sota/generalized-zero-shot-skeletal-action-1?p=syntactically-guided-generative-embeddings-1)
 
-# SynSE
+# SynSE - Syntactically Guided Generative Embeddings For Zero Shot Skeleton Action Recognition
 Original PyTorch implementation for ['Syntactically Guided Generative Embeddings For Zero Shot Skeleton Action Recognition](https://arxiv.org/pdf/2101.11530.pdf)'
 
 <img src = "Images/SynSE_arch.png" />
