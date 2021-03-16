@@ -6,13 +6,13 @@ Training and evaluation scripts for CADA-VAE and the gating model have been prov
 1. The visual features can be found in the <code> synse_resources/ntu_results </code> directory. 
 2. The pretrained models can be found in the <code> synse_resources/language_modelling </code> directory. 
 3. For evaluating on the 5 random split of NTU-60
-    <code> python cada_vae_training.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/repo_test_cada_vae_5_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_cycle_per_epoch 1700 --latent_size 100 --load_epoch 8499 --mode eval --gpu 0</code>
+    <code> python cada_vae_training.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/repo_test_cada_vae_5_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_epoch_per_cycle 1700 --latent_size 100 --load_epoch 8499 --mode eval --gpu 0</code>
 4. For evaluating on the 12 random split of NTU-60
-    <code> python cada_vae_training.py --ntu 60 --phase train --ss 12 --st r -- dataset 'synse_resources/ntu_results/shift_12_r/' --wdir 'synse_resources/language_modelling/repo_test_cada_vae_12_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_cycle_per_epoch 1900 --latent_size 100 --load_epoch 1699 --mode eval --gpu 0</code>
+    <code> python cada_vae_training.py --ntu 60 --phase train --ss 12 --st r -- dataset 'synse_resources/ntu_results/shift_12_r/' --wdir 'synse_resources/language_modelling/repo_test_cada_vae_12_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_epoch_per_cycle 1900 --latent_size 100 --load_epoch 1699 --mode eval --gpu 0</code>
 5. For evaluating on the 10 random split of NTU-120
-    <code> python cada_vae_training.py --ntu 120 --phase train --ss 10 --st r -- dataset 'synse_resources/ntu_results/shift_10_r/' --wdir 'synse_resources/language_modelling/repo_test_cada_vae_10_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_cycle_per_epoch 1900 --latent_size 200 --load_epoch 3799 --mode eval --gpu 0</code>
+    <code> python cada_vae_training.py --ntu 120 --phase train --ss 10 --st r -- dataset 'synse_resources/ntu_results/shift_10_r/' --wdir 'synse_resources/language_modelling/repo_test_cada_vae_10_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_epoch_per_cycle 1900 --latent_size 200 --load_epoch 3799 --mode eval --gpu 0</code>
 6. For evaluating on the 24 random split of NTU-120
-    <code> python cada_vae_training.py --ntu 120 --phase train --ss 24 --st r -- dataset 'synse_resources/ntu_results/shift_24_r/' --wdir 'synse_resources/language_modelling/repo_test_cada_vae_24_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_cycle_per_epoch 1900 --latent_size 200 --load_epoch 9499 --mode eval --gpu 0</code>
+    <code> python cada_vae_training.py --ntu 120 --phase train --ss 24 --st r -- dataset 'synse_resources/ntu_results/shift_24_r/' --wdir 'synse_resources/language_modelling/repo_test_cada_vae_24_r' --le bert -- ve shift --load_classifier --num_cycles 10 --num_epoch_per_cycle 1900 --latent_size 200 --load_epoch 9499 --mode eval --gpu 0</code>
 
 ### Training cada_vae for ZSL:
 1. The code for training cada_vae for ZSL is present in [cada_vae_training.py](cada_vae_training.py). The script accepts the following parameters:
@@ -36,7 +36,7 @@ mode | train;eval | train for training synse, eval to eval using a pretrained mo
 gpu | - | which gpu device number to train on |
 
 2. Use the below command for training SYNSE for zsl for 55/5 split.
-    <code> python cada_vae_training.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/cada_vae_5_r' --le bert -- ve shift --num_cycles 10 --num_cycle_per_epoch 1700 --latent_size 100 --mode train --gpu 0</code>
+    <code> python cada_vae_training.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/cada_vae_5_r' --le bert -- ve shift --num_cycles 10 --num_epoch_per_cycle 1700 --latent_size 100 --mode train --gpu 0</code>
 
 
 
@@ -70,9 +70,9 @@ temp | - | Temperature scaling factor in the gating model |
 To only train the gating model follow from step 3 with wdir value as 'synse_resources/language_modelling/repo_test_cada_vae_5_r_val', otherwise continue from step 1.
 
     1. First train cada_vae for ZSL in train phase:
-    <code> python cada_vae_training.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/cada_vae_5_r' --le bert -- ve shift --num_cycles 10 --num_cycle_per_epoch 1700 --latent_size 100 --mode train --gpu 0</code>
+    <code> python cada_vae_training.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/cada_vae_5_r' --le bert -- ve shift --num_cycles 10 --num_epoch_per_cycle 1700 --latent_size 100 --mode train --gpu 0</code>
     2. Then train cada_vae for ZSL in eval phase(Please note the difference in the wdir and dataset values) :
-    <code> python cada_vae_training.py --ntu 60 --phase val --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_val_5_r/' --wdir 'synse_resources/language_modelling/cada_vae_5_r_val' --le bert -- ve shift --num_cycles 10 --num_cycle_per_epoch 1700 --latent_size 100 --mode train --gpu 0</code>
+    <code> python cada_vae_training.py --ntu 60 --phase val --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_val_5_r/' --wdir 'synse_resources/language_modelling/cada_vae_5_r_val' --le bert -- ve shift --num_cycles 10 --num_epoch_per_cycle 1700 --latent_size 100 --mode train --gpu 0</code>
     3. Train the gating model using the following command.
     <code> python gating_cada_vae_model_training.py --ss 5 --st r --dataset 'synse_resources/ntu_results/shift_val_5_r/' --phase val --wdir synse_resources/language_modelling/cada_vae_5_r_val --le bert --ve shift --ntu 60 </code>
     4. Finally run the gating model eval script.
