@@ -17,7 +17,7 @@ wdir | - | Path to the directory to store the weights in |
 gpu | - | which gpu device number to train on |
 
 2. Use the below command for training JPOSE for zsl for 55/5 split.
-    <code> python zsl_fgar.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r' --le bert -- ve shift --gpu 0</code>
+    <code> python zsl_fgar.py --ntu 60 --phase train --ss 5 --st r --dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r' --le bert --ve shift --gpu 0</code>
 
 
 ### Train the gating model for FGAR:
@@ -36,9 +36,9 @@ wdir | - | Directory to store the weights in |
 2. Training the gating model for 55/5 split:
 
     1. First train FGAR for ZSL in train phase:
-    <code> python zsl_fgar.py --ntu 60 --phase train --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r' --le bert -- ve shift --gpu 0</code>
+    <code> python zsl_fgar.py --ntu 60 --phase train --ss 5 --st r --dataset 'synse_resources/ntu_results/shift_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r' --le bert --ve shift --gpu 0</code>
     2. Then train FGAR for ZSL in eval phase(Please note the difference in the wdir and dataset values):
-    <code> python zsl_fgar.py --ntu 60 --phase val --ss 5 --st r -- dataset 'synse_resources/ntu_results/shift_val_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r' --le bert -- ve shift --gpu 0</code>
+    <code> python zsl_fgar.py --ntu 60 --phase val --ss 5 --st r --dataset 'synse_resources/ntu_results/shift_val_5_r/' --wdir 'synse_resources/language_modelling/fgar_5_r' --le bert --ve shift --gpu 0</code>
     3. Train the gating model using the following command.
     <code> python gating_fgar_model_training.py --ss 5 --st r --dataset 'synse_resources/ntu_results/shift_val_5_r/' --phase val --wdir synse_resources/language_modelling/fgar_5_r --le bert --ve shift --ntu 60 </code>
     4. Finally run the gating model eval script.
