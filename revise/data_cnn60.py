@@ -159,7 +159,7 @@ class NTUDataLoaders(object):
                 self.metric = 'CS'
             else:
                 self.metric = 'CV'
-        path = osp.join(self.dataset)
+        path = osp.join('/ssd_scratch/cvit/pranay.gupta/', self.dataset)
         
         if 'ntu_splits_val' in path:
             f = h5py.File(path, 'r')
@@ -197,8 +197,10 @@ class NTUDataLoaders(object):
             self.val_Y = np.load(path + '/z_label.npy')
             self.test_X = np.load(path + '/gtest.npy')
             self.test_Y = np.load(path + '/g_label.npy')
-            self.val_out_X = np.load(path + '/ztest_out.npy')
-            self.test_out_X = np.load(path + '/gtest_out.npy')
+            self.val_out_X = None
+#np.load(path + '/ztest_out.npy')
+            self.test_out_X = None
+#np.load(path + '/gtest_out.npy')
 
         if self.dataset == 'NTU':
             self.max = 5.18858098984
