@@ -6,6 +6,8 @@
 # SynSE - Syntactically Guided Generative Embeddings For Zero Shot Skeleton Action Recognition
 Original PyTorch implementation for ['Syntactically Guided Generative Embeddings For Zero Shot Skeleton Action Recognition](https://arxiv.org/pdf/2101.11530.pdf)' , accepted at ['IEEE International Conference on Image Processing (ICIP) 2021'](https://2021.ieeeicip.org/)
 
+<b> TL;DR version of the work: </b> <a href="https://threadreaderapp.com/thread/1356893399576580100.html"> HERE </a> 
+
 <img src = "Images/SynSE_arch.png" />
 
 ## Dependencies
