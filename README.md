@@ -10,7 +10,9 @@ Original PyTorch implementation for ['Syntactically Guided Generative Embeddings
 
 <img src = "Images/SynSE_arch.png" />
 
-<b> Video Overview </b>
+<b> Video Overview (Click on image below) </b>
+<br>
+
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/r6xgTg3zIwI/0.jpg)](http://www.youtube.com/watch?v=r6xgTg3zIwI "SynSE Zero Shot")
 
 
