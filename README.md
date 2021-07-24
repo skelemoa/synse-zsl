@@ -10,6 +10,8 @@ Original PyTorch implementation for ['Syntactically Guided Generative Embeddings
 
 <img src = "Images/SynSE_arch.png" />
 
+<img align="left" width="80" height="80" src="https://i.pinimg.com/originals/19/7b/36/197b365922d1ea3aa1a932ff9bbda4a6.png">
+
 <b> Video Overview (Click on image below) </b>
 <br>
 
