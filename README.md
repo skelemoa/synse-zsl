@@ -10,11 +10,25 @@ Original PyTorch implementation for ['Syntactically Guided Generative Embeddings
 
 <img src = "Images/SynSE_arch.png" />
 
-<img align="left" width="80" height="80" src="https://i.pinimg.com/originals/19/7b/36/197b365922d1ea3aa1a932ff9bbda4a6.png">
-<b> Video Overview (Click on image below) </b>
+<div align="center">
+    <a href="https://youtu.be/r6xgTg3zIwI">
+        <img src="https://img.shields.io/badge/Watch on YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"/>
+    </a>
 <br>
+<table>
+    <tr>
+        <td>
+            <a href="https://youtu.be/r6xgTg3zIwI" target="_blank">
+                <img src="http://img.youtube.com/vi/r6xgTg3zIwI/maxresdefault.jpg" alt="Watch the video" width="640" height="360" border="5"/>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <th><samp> Video Overview(Click on Image above)</samp></th>
+    </tr>
+</table>
+</div>
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/r6xgTg3zIwI/0.jpg)](http://www.youtube.com/watch?v=r6xgTg3zIwI "SynSE Zero Shot")
 
 ## Dependencies
 
