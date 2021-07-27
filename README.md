@@ -99,38 +99,38 @@ The unseen classes of the various splits are listed below. These splits are also
 #### Unseen Classes (96/24 split):
 <table>
   <tr>
-    <td align = "center"><b>A2</b> eat meal </td>
-    <td align = "center"><b>A4</b> brush hair </td>
-    <td align = "center"><b>A5</b> drop </td>
-    <td align = "center"><b>A11</b> reading </td>
-    <td align = "center"><b>A18</b> put on glasses </td>
+    <td align = "center"><b>A6</b> pick up </td>
+    <td align = "center"><b>A10</b> clapping </td>
+    <td align = "center"><b>A12</b> writing </td>
+    <td align = "center"><b>A17</b> take off shoe </td>
+    <td align = "center"><b>A19</b> take off glasses </td>
   </tr>
   <tr>
-    <td align = "center"><b>A20</b> put on a hat/cap </td>
-    <td align = "center"><b>A28</b> phone call </td>
-    <td align = "center"><b>A48</b> nausea/vomiting </td>
-    <td align = "center"><b>A49</b> fan self </td>
-    <td align = "center"><b>A54</b> point finger </td>
+    <td align = "center"><b>A21</b> take off hat or cap </td>
+    <td align = "center"><b>A23</b> hand waving </td>
+    <td align = "center"><b>A30</b> type on keyboard </td>
+    <td align = "center"><b>A36</b> shake head </td>
+    <td align = "center"><b>A40</b> cross hands in front </td>
   </tr>
    <tr>
-    <td align = "center"><b>A59</b> walking towards </td>
-    <td align = "center"><b>A64</b> bounce ball </td>
-    <td align = "center"><b>A67</b> hush </td>
-    <td align = "center"><b>A80</b> squat down </td>
-    <td align = "center"><b>A84</b> play magic cube </td>
+    <td align = "center"><b>A46</b> back pain </td>
+    <td align = "center"><b>A50</b> punch or slap </td>
+    <td align = "center"><b>A60</b> walking apart </td>
+    <td align = "center"><b>A69</b> thumb up </td>
+    <td align = "center"><b>A71</b> make ok sign </td>
   </tr>
    <tr>
-    <td align = "center"><b>A87</b> put on bag </td>
-    <td align = "center"><b>A90</b> take object out of bag </td>
-    <td align = "center"><b>A93</b> shake fist </td>
-    <td align = "center"><b>A98</b> arm swings </td>
-    <td align = "center"><b>A99</b> run on the spot </td>
+    <td align = "center"><b>A82</b> fold paper </td>
+    <td align = "center"><b>A85</b> apply cream on face </td>
+    <td align = "center"><b>A88</b> take off bag </td>
+    <td align = "center"><b>A94</b> throw up cap or hat </td>
+    <td align = "center"><b>A95</b> capitulate </td>
   </tr>
   <tr>
-    <td align = "center"><b>A101</b> cross toe touch </td>
-    <td align = "center"><b>A104</b> stretch oneself </td>
-    <td align = "center"><b>A106</b> hit with object </td>
-    <td align = "center"><b>A109</b> grab stuff </td>
+    <td align = "center"><b>A105</b> blow nose </td>
+    <td align = "center"><b>A114</b> carry object </td>
+    <td align = "center"><b>A115</b> take photo </td>
+    <td align = "center"><b>A120</b> rock paper scissors </td>
   </tr>
 </table>
 
